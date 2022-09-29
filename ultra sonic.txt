@@ -1,0 +1,9 @@
+from WePort import *
+ from WeUltrasonicSensor import *
+ from WeDCMotor import *
+ import time ultrasonic_B = WeUltrasonicSensor(PORT_B)
+ dc_1 = WeDCMotor(1)
+ dc_2 = WeDCMotor(2)
+ while True:
+ if ultrasonic_B.distanceCM() > 20: dc_1.run(100) dc_2.run(-100)
+ else: dc_1.run(100) dc_2.run(100) time.sleep(0.5)
